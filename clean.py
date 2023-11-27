@@ -5,10 +5,10 @@ from path import *
 with open(OPERATOR_PATH, 'r', encoding="utf-8") as f:
     char_data = json.load(f)
 
-    existing = []
+    existing = {}
 
     for info in char_data.values():
-        existing.append(info['charId'])
+        existing[info['charId']] = info['rarity']
 
     found_ops = 0
     
@@ -19,8 +19,12 @@ with open(OPERATOR_PATH, 'r', encoding="utf-8") as f:
         if not filename.startswith("char"):
             os.remove(AVATAR_PATH + filename)
         elif not filename.endswith('_2.png'):
-            print('deleting non e2 art ' + filename)
-            os.remove(AVATAR_PATH + filename)
+            doesExist = existing[filename.replace('.png', '')]
+            if doesExist and doesExist != 3:
+                print('deleting non e2 art ' + filename)
+                os.remove(AVATAR_PATH + filename)
+            else:
+                print('3* ' + filename)
         else:
             found_ops += 1
 
