@@ -19,6 +19,11 @@ with open(OPERATOR_PATH, 'r', encoding="utf-8") as f:
 
     for file in os.listdir(directory):
         filename = os.fsdecode(file)
+        if filename.endswith(".webp"):
+            found_ops += 1
+            continue
+        if filename.endswith(".exe") or filename.endswith(".sh"):
+            continue
         if not filename.startswith("char"):
             os.remove(AVATAR_PATH + filename)
         elif not filename.endswith('_2.png'):
