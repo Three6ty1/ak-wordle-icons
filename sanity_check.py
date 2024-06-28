@@ -8,7 +8,6 @@ import json
 import os
 from path import *
 import pprint
-import re
 
 with open(OPERATOR_PATH, 'r', encoding="utf-8") as f:
     char_data = json.load(f)
@@ -37,7 +36,6 @@ with open(OPERATOR_PATH, 'r', encoding="utf-8") as f:
 
         try:
             existing.remove(filename)
-            
         except:
             print("Operator in avatar does not exist in database: " + filename)
     
