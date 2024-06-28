@@ -1,11 +1,13 @@
 # Instructions
 
 ## Expected results as of 28/06/2024
-There 325 Icons, 15 missing entries database due to icons being from CN.
+There 320 Icons, 15 missing entries database due to icons being from CN.
 
 1 Icon is Guard Amiya.
 
-There are total 310 operators in the database and the site says that there are 309 operators in global?
+There are total 305 operators in the database excluding IS and Amiya forms.
+
+The database is up to date with **Vivianas banner**. The next banner (not included) is **Degenbrecher banner**
 
 ## Update Database
 Download ***handbook_info_table.json*** and ***character_table.json*** from Aceship github
