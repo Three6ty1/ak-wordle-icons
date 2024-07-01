@@ -1,5 +1,6 @@
 import json
 from pprint import pprint 
+from alias import aliases
 
 INFECTED_INDEX = 8
 
@@ -180,6 +181,7 @@ def main():
 
         operators[name] = {
             "charId": id,
+            "alias": [],
             "gender": gender,
             "race": race,
             "group": group,
@@ -207,6 +209,17 @@ def main():
     print(str(len(groups)) + ' unique groups')
     print(sorted(groups))
     print(str(len(operators)) + ' operators')
+
+    missing_alias = []
+    for alias in aliases:
+        if operators[alias]:
+            operators[alias]["alias"] = aliases[alias]
+        else:
+            missing_alias.append(alias)
+    
+    print(str(len(aliases) - len(missing_alias)) + ' aliases added, missing ' + str(len(missing_alias)))
+    print(sorted(missing_alias))
+
     with open('./operator_db/operator_db.json', 'w', encoding='utf-8') as f:
         json.dump(operators, f, ensure_ascii=False, indent=4)
 
