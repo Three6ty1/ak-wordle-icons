@@ -212,9 +212,9 @@ def main():
 
     missing_alias = []
     for alias in aliases:
-        if operators[alias]:
+        try:
             operators[alias]["alias"] = aliases[alias]
-        else:
+        except:
             missing_alias.append(alias)
     
     print(str(len(aliases) - len(missing_alias)) + ' aliases added, missing ' + str(len(missing_alias)))
