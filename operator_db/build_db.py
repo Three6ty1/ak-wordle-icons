@@ -218,7 +218,7 @@ def main():
             missing_alias.append(alias)
     
     print(str(len(aliases) - len(missing_alias)) + ' aliases added, missing ' + str(len(missing_alias)))
-    print(sorted(missing_alias))
+    pprint(sorted(missing_alias))
 
     with open('./operator_db/operator_db.json', 'w', encoding='utf-8') as f:
         json.dump(operators, f, ensure_ascii=False, indent=4)
